@@ -27,10 +27,10 @@ import (
 	"github.com/uber/jaeger-lib/metrics"
 	mTestutils "github.com/uber/jaeger-lib/metrics/testutils"
 
-	"github.com/uber/jaeger-client-go/log"
-	"github.com/uber/jaeger-client-go/testutils"
-	"github.com/uber/jaeger-client-go/thrift-gen/sampling"
-	"github.com/uber/jaeger-client-go/utils"
+	"github.com/johngray/jaeger-client-go/log"
+	"github.com/johngray/jaeger-client-go/testutils"
+	"github.com/johngray/jaeger-client-go/thrift-gen/sampling"
+	"github.com/johngray/jaeger-client-go/utils"
 )
 
 const (

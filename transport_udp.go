@@ -19,8 +19,8 @@ import (
 
 	"github.com/apache/thrift/lib/go/thrift"
 
-	j "github.com/uber/jaeger-client-go/thrift-gen/jaeger"
-	"github.com/uber/jaeger-client-go/utils"
+	j "github.com/johngray/jaeger-client-go/thrift-gen/jaeger"
+	"github.com/johngray/jaeger-client-go/utils"
 )
 
 // Empirically obtained constant for how many bytes in the message are used for envelope.

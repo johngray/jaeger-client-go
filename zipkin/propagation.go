@@ -20,7 +20,7 @@ import (
 
 	opentracing "github.com/opentracing/opentracing-go"
 
-	"github.com/uber/jaeger-client-go"
+	"github.com/johngray/jaeger-client-go"
 )
 
 // Propagator is an Injector and Extractor

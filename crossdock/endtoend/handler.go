@@ -23,10 +23,10 @@ import (
 
 	"github.com/opentracing/opentracing-go"
 
-	"github.com/uber/jaeger-client-go"
-	"github.com/uber/jaeger-client-go/config"
-	"github.com/uber/jaeger-client-go/crossdock/common"
-	"github.com/uber/jaeger-client-go/crossdock/log"
+	"github.com/johngray/jaeger-client-go"
+	"github.com/johngray/jaeger-client-go/config"
+	"github.com/johngray/jaeger-client-go/crossdock/common"
+	"github.com/johngray/jaeger-client-go/crossdock/log"
 )
 
 var (

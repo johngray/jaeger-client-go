@@ -1,4 +1,4 @@
-package: github.com/uber/jaeger-client-go
+package: github.com/johngray/jaeger-client-go
 import:
 - package: github.com/apache/thrift
   version: '>=0.9.3, <0.11.0'

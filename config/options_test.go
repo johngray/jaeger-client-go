@@ -22,7 +22,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/uber/jaeger-lib/metrics"
 
-	"github.com/uber/jaeger-client-go"
+	"github.com/johngray/jaeger-client-go"
 )
 
 func TestApplyOptions(t *testing.T) {
