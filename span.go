@@ -73,13 +73,58 @@ func (s *Span) SetOperationName(operationName string) opentracing.Span {
 	if s.context.IsSampled() {
 		s.operationName = operationName
 	}
-	s.observer.OnSetOperationName(operationName)
+	//s.observer.OnSetOperationName(operationName)
+	return s
+}
+
+func (s *Span) SetContext(context SpanContext) opentracing.Span {
+	s.Lock()
+	defer s.Unlock()
+	s.context = context
+	return s
+}
+
+func (s *Span) SetStartTime(time time.Time) opentracing.Span {
+	s.Lock()
+	defer s.Unlock()
+	if s.context.IsSampled() {
+		s.startTime = time
+	}
+	return s
+}
+
+func (s *Span) SetDuration(d time.Duration) opentracing.Span {
+	s.Lock()
+	defer s.Unlock()
+	if s.context.IsSampled() {
+		s.duration = d
+	}
+	return s
+}
+
+func (s *Span) SetTracer(tracer opentracing.Tracer) opentracing.Span {
+	s.Lock()
+	defer s.Unlock()
+	if s.context.IsSampled() {
+		s.tracer = tracer.(*Tracer)
+	}
+	return s
+}
+
+// SetOperationName sets or changes the operation name.
+func (s *Span) SetMutex(mutex sync.RWMutex) opentracing.Span {
+	s.RWMutex = mutex
+	return s
+}
+
+func (s *Span) SetObserver(observer ContribSpanObserver) opentracing.Span {
+	s.observer = observer
 	return s
 }
 
 // SetTag implements SetTag() of opentracing.Span
 func (s *Span) SetTag(key string, value interface{}) opentracing.Span {
-	s.observer.OnSetTag(key, value)
+	//s.observer.OnSetTag(key, value)
 	if key == string(ext.SamplingPriority) && setSamplingPriority(s, value) {
 		return s
 	}
@@ -183,7 +228,7 @@ func (s *Span) FinishWithOptions(options opentracing.FinishOptions) {
 	if options.FinishTime.IsZero() {
 		options.FinishTime = s.tracer.timeNow()
 	}
-	s.observer.OnFinish(options)
+	//s.observer.OnFinish(options)
 	s.Lock()
 	if s.context.IsSampled() {
 		s.duration = options.FinishTime.Sub(s.startTime)
